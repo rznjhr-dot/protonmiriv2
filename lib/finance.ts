@@ -1,3 +1,5 @@
+import type { Model } from "./vehicles";
+
 export interface FinanceInput {
   otr: number;
   rebate: number;
@@ -16,7 +18,7 @@ export interface FinanceResult {
   totalInterest: number;
   totalRepayment: number;
   monthly: number;
-  daily: number;
+  effectiveRate: number;
 }
 
 export function calculateFinance(input: FinanceInput): FinanceResult {
@@ -33,15 +35,23 @@ export function calculateFinance(input: FinanceInput): FinanceResult {
 
   const loanAmount = effectivePrice - depositAmount;
 
-  const totalInterest =
-    loanAmount * (input.interestRate / 100) * input.tenure;
+  const annualRate = input.interestRate / 100;
+  const n = input.tenure * 12;
 
-  const totalRepayment = loanAmount + totalInterest;
+  let monthly: number;
+  let totalRepayment: number;
+  let totalInterest: number;
 
-  const monthly =
-    input.tenure > 0 ? totalRepayment / (input.tenure * 12) : 0;
-
-  const daily = monthly / 30;
+  if (annualRate === 0 || n === 0) {
+    monthly = input.tenure > 0 ? loanAmount / n : 0;
+    totalRepayment = loanAmount;
+    totalInterest = 0;
+  } else {
+    // Flat Rate (Original Rate) method — standard Malaysian hire purchase
+    totalInterest = loanAmount * annualRate * input.tenure;
+    totalRepayment = loanAmount + totalInterest;
+    monthly = totalRepayment / n;
+  }
 
   return {
     effectivePrice,
@@ -51,7 +61,7 @@ export function calculateFinance(input: FinanceInput): FinanceResult {
     totalInterest,
     totalRepayment,
     monthly,
-    daily,
+    effectiveRate: input.interestRate,
   };
 }
 
@@ -63,10 +73,16 @@ export function fmtDec(n: number): string {
   return n.toLocaleString("en-MY", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-export function rm(n: number): string {
-  return "RM" + fmt(n);
-}
-
-export function rmDec(n: number): string {
-  return "RM" + fmtDec(n);
+/** Minimum monthly instalment (90% loan + rebate, 9-year tenure) */
+export function getMinMonthly(model: Model): number {
+  const cheapest = model.variants.reduce((min, v) =>
+    v.otr - v.rebate < min.otr - min.rebate ? v : min
+  );
+  const effectivePrice = cheapest.otr - cheapest.rebate;
+  const loanAmount = effectivePrice * 0.9;
+  const rate = model.interestRate / 100;
+  const tenure = 9;
+  const totalInterest = loanAmount * rate * tenure;
+  const totalRepayment = loanAmount + totalInterest;
+  return totalRepayment / (tenure * 12);
 }

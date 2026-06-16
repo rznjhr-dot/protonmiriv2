@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Telegram bot — separate project, excluded from build
+    "bot/**",
   ]),
 ]);
 

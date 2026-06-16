@@ -9,41 +9,53 @@ export interface WhatsAppData {
 }
 
 export function generateWhatsAppUrl(data: WhatsAppData): string {
+  const sanitised = {
+    ...data,
+    interest: String(parseFloat(data.interest) || 0),
+  };
+
   const msg = [
-    "Hi Ridzuan,",
+    "Hi Sheena,",
     "",
-    "Saya berminat dengan BYD " + data.model + ".",
+    "Saya berminat dengan " + sanitised.model + ".",
     "",
-    "Model: " + data.model,
-    "Price: RM" + data.price,
-    "Deposit: RM" + data.deposit,
-    "Loan: RM" + data.loan,
-    "Tenure: " + data.tenure + " Years",
-    "Interest: " + data.interest + "%",
-    "Monthly: RM" + data.monthly,
+    "Model: " + sanitised.model,
+    "Price: RM" + sanitised.price,
+    "Deposit: RM" + sanitised.deposit,
+    "Loan: RM" + sanitised.loan,
+    "Tenure: " + sanitised.tenure + " Years",
+    "Interest: " + sanitised.interest + "% EIR",
+    "Monthly: RM" + sanitised.monthly,
     "",
     "Boleh bantu saya dengan quotation rasmi?",
+
   ].join("\n");
 
-  return "https://wa.me/601131933930?text=" + encodeURIComponent(msg);
+  return "https://wa.me/60198543110?text=" + encodeURIComponent(msg);
 }
 
 export function generateWhatsAppBookingUrl(data: WhatsAppData): string {
+  const sanitised = {
+    ...data,
+    interest: String(parseFloat(data.interest) || 0),
+  };
+
   const msg = [
-    "Hi Ridzuan,",
+    "Hi Sheena,",
     "",
-    "Saya nak place booking untuk BYD " + data.model + "!",
+    "Saya nak place booking untuk " + sanitised.model + "!",
     "",
-    "Model: " + data.model,
-    "Price: RM" + data.price,
-    "Deposit: RM" + data.deposit,
-    "Loan: RM" + data.loan,
-    "Tenure: " + data.tenure + " Years",
-    "Interest: " + data.interest + "%",
-    "Monthly: RM" + data.monthly,
+    "Model: " + sanitised.model,
+    "Price: RM" + sanitised.price,
+    "Deposit: RM" + sanitised.deposit,
+    "Loan: RM" + sanitised.loan,
+    "Tenure: " + sanitised.tenure + " Years",
+    "Interest: " + sanitised.interest + "% EIR",
+    "Monthly: RM" + sanitised.monthly,
     "",
     "Boleh bantu saya dengan proses booking? Terima kasih!",
+
   ].join("\n");
 
-  return "https://wa.me/601131933930?text=" + encodeURIComponent(msg);
+  return "https://wa.me/60198543110?text=" + encodeURIComponent(msg);
 }
