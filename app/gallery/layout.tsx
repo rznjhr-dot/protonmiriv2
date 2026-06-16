@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gallery | Proton Miri | Sheenalina Simon",
+  title: "Gallery",
   description:
     "Lihat foto-foto delivery Proton Miri terkini. Jual Proton Miri, full loan & senang loan bersama Sheenalina Simon, Sales Advisor Proton Sarawak.",
+  alternates: {
+    canonical: "/gallery",
+  },
   openGraph: {
-    title: "Gallery | Proton Miri | Sheenalina Simon",
+    title: "Gallery",
     description:
       "Lihat foto-foto delivery Proton Miri terkini. Jual Proton Miri, full loan & senang loan bersama Sheenalina Simon.",
     images: [
@@ -19,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gallery | Proton Miri",
+    title: "Gallery",
     description:
       "Jual Proton Miri — lihat foto-foto delivery terkini bersama Sheenalina Simon.",
   },
