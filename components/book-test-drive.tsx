@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { models } from "@/lib/vehicles";
+import { PHONE_NUMBER } from "@/lib/constants";
 
 export default function BookTestDrive() {
   const [name, setName] = useState("");
@@ -28,7 +29,7 @@ export default function BookTestDrive() {
       ].join("\n");
 
       window.open(
-        "https://wa.me/60198543110?text=" + encodeURIComponent(msg),
+        "https://wa.me/" + PHONE_NUMBER + "?text=" + encodeURIComponent(msg),
         "_blank"
       );
 

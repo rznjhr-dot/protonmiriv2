@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { WHATSAPP_URL, CONTACT } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
         <img
           src="/images/hero-banner.webp"
           alt=""
-          loading="lazy"
+          fetchPriority="high"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0"
@@ -135,7 +136,7 @@ export default function Hero() {
               <div className="text-xs text-blue-400/70 font-medium">Authorised Sales Advisor</div>
               <div className="flex flex-col items-start gap-0.5 mt-1.5">
                 <a
-                  href="https://www.facebook.com/profile.php?id=61567956414743"
+                  href={CONTACT.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-[11px] text-white/30 hover:text-white/60 transition-colors"
@@ -146,7 +147,7 @@ export default function Hero() {
                   <span className="text-white/50">Sheena Proton</span>
                 </a>
                 <a
-                  href="https://www.tiktok.com/@sheenaproton"
+                  href={CONTACT.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-[11px] text-white/30 hover:text-white/60 transition-colors"
@@ -158,7 +159,7 @@ export default function Hero() {
                 </a>
               </div>
               <a
-                href="https://wa.me/60198543110"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 w-full inline-flex items-center justify-center gap-1 bg-[#25D366] text-white px-2.5 py-0.5 rounded-lg font-semibold text-[10px] transition-all duration-300 hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_16px_rgba(37,211,102,0.35)]"

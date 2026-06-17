@@ -94,7 +94,7 @@ export default function MapSection() {
                 className="flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-blue-600/5 border border-white/[0.06] text-white/70 text-sm font-semibold hover:bg-blue-600/15 hover:text-blue-400 hover:border-blue-500/25 transition-all"
               >
                 <Navigation size="16" />
-             Navigate with Waze
+                Navigate with Waze
                 <ExternalLink size="13" className="opacity-60" />
               </a>
             </div>

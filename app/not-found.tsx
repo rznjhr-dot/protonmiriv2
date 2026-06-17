@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Home, Phone, ArrowLeft } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export default function NotFound() {
   return (
@@ -46,9 +47,9 @@ export default function NotFound() {
             Kembali ke Laman Utama
           </Link>
           <a
-            href="https://wa.me/60198543110"
+            href={WHATSAPP_URL}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-white/10 text-theme-70 hover:text-white hover:border-white/30 px-6 py-3 rounded-full text-sm font-medium transition-all"
           >
             <Phone size={16} />

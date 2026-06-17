@@ -1,3 +1,5 @@
+import { PHONE_NUMBER } from "./constants";
+
 export interface WhatsAppData {
   model: string;
   price: string;
@@ -31,7 +33,8 @@ export function generateWhatsAppUrl(data: WhatsAppData): string {
 
   ].join("\n");
 
-  return "https://wa.me/60198543110?text=" + encodeURIComponent(msg);
+  const base = "https://wa.me/" + PHONE_NUMBER;
+  return base + "?text=" + encodeURIComponent(msg);
 }
 
 export function generateWhatsAppBookingUrl(data: WhatsAppData): string {
@@ -57,5 +60,6 @@ export function generateWhatsAppBookingUrl(data: WhatsAppData): string {
 
   ].join("\n");
 
-  return "https://wa.me/60198543110?text=" + encodeURIComponent(msg);
+  const base = "https://wa.me/" + PHONE_NUMBER;
+  return base + "?text=" + encodeURIComponent(msg);
 }

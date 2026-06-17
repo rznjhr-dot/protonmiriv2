@@ -1,6 +1,11 @@
 /*
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src https://www.facebook.com https://www.google.com; connect-src 'none'; base-uri 'self'; form-action 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src https://www.facebook.com https://www.google.com; font-src 'self'; connect-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  X-Robots-Tag: noarchive, noimageindex
+
+/gallery
+  X-Robots-Tag: noarchive, noimageindex, noydir

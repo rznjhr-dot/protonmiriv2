@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { CONTACT } from "@/lib/constants";
 
 export default function GalleryPage() {
   return (
@@ -22,7 +23,8 @@ export default function GalleryPage() {
         </div>
       </nav>
 
-      {/* ── Facebook Section ── */}
+      <main>
+        {/* ── Facebook Section ── */}
       <section className="px-6 pb-20">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -78,9 +80,7 @@ export default function GalleryPage() {
                   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FSheena-Proton%2F61567956414743%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                   width="500"
                   height="600"
-                  style={{ border: "none", overflow: "hidden", width: "100%", maxWidth: "500px" }}
-                  scrolling="no"
-                  frameBorder="0"
+                  style={{ border: 0, overflow: "hidden", width: "100%", maxWidth: "500px" }}
                   allowFullScreen
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                   title="Facebook - Sheena Proton"
@@ -89,7 +89,7 @@ export default function GalleryPage() {
               </div>
               <div className="p-4 text-center border-t border-white/5">
                 <a
-                  href="https://www.facebook.com/people/Sheena-Proton/61567956414743/"
+                  href={CONTACT.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#1877F2] text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(24,119,242,0.35)] focus-visible:outline-2 focus-visible:outline-blue-400"
@@ -104,6 +104,7 @@ export default function GalleryPage() {
           </motion.div>
         </div>
       </section>
+      </main>
 
     </>
   );

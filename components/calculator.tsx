@@ -141,6 +141,8 @@ export default function Calculator({ model }: Props) {
                       borderColor: depositPct === pct && !showCustom ? "rgba(37,99,235,0.4)" : "var(--cz-border)",
                       color: depositPct === pct && !showCustom ? "#38BDF8" : "var(--cz-text-50)",
                     }}
+                    aria-pressed={depositPct === pct && !showCustom}
+                    aria-label={pct + "% downpayment"}
                   >
                     {pct}%
                   </button>
@@ -163,6 +165,7 @@ export default function Calculator({ model }: Props) {
                   onChange={(e) => setCustomDeposit(e.target.value)}
                   placeholder="Custom"
                   min={0}
+                  aria-label="Custom deposit amount"
                   className="w-full px-3 py-1.5 rounded-r-lg text-xs outline-none transition-colors placeholder:text-theme-30"
                   style={{
                     backgroundColor: "var(--cz-input)",
@@ -184,6 +187,7 @@ export default function Calculator({ model }: Props) {
                     onChange={(e) => setInterestRate(e.target.value)}
                     step="0.01"
                     min="0"
+                    aria-label="Interest rate"
                     className="w-full px-2 py-1.5 rounded-lg text-xs outline-none transition-colors text-center pr-6"
                     style={{
                       backgroundColor: "var(--cz-input)",
@@ -195,7 +199,7 @@ export default function Calculator({ model }: Props) {
                     %
                   </span>
                 </div>
-                <span className="text-xs text-center" style={{ color: "var(--cz-text-30)" }}>×</span>
+                <span className="text-xs text-center" style={{ color: "var(--cz-text-30)" }} aria-hidden="true">×</span>
                 {TENURES.map((y) => (
                   <button
                     key={y}
@@ -206,6 +210,8 @@ export default function Calculator({ model }: Props) {
                       borderColor: tenure === y ? "rgba(37,99,235,0.4)" : "var(--cz-border)",
                       color: tenure === y ? "#38BDF8" : "var(--cz-text-50)",
                     }}
+                    aria-pressed={tenure === y}
+                    aria-label={y + " years tenure"}
                   >
                     {y}yr
                   </button>

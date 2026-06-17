@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Orbitron, Inter, Lavishly_Yours } from "next/font/google";
 import ErrorBoundary from "@/components/error-boundary";
+import { SITE_URL, SITE_NAME, PHONE_NUMBER, EMAIL, SHOWROOM } from "@/lib/constants";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -22,8 +23,8 @@ const lavishly = Lavishly_Yours({
   display: "swap",
 });
 
-const siteUrl = "https://protonmiri.com.my";
-const siteName = "Proton Miri | Sheenalina Simon";
+const siteUrl = SITE_URL;
+const siteName = SITE_NAME;
 
 export const metadata: Metadata = {
   title: {
@@ -97,6 +98,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/favicon.ico",
   },
+  other: {
+    "theme-color": "#080c12",
+  },
 };
 
 export default function RootLayout({
@@ -110,18 +114,18 @@ export default function RootLayout({
     name: "Sheenalina Simon — Proton Miri",
     description: "Jual Proton Miri — Sales Advisor Proton Miri Sarawak. Full loan, senang loan untuk semua model Proton. Hubungi Sheenalina Simon sekarang.",
     url: siteUrl,
-    telephone: "+60198543110",
-    email: "sheenalinasimon@gmail.com",
+    telephone: PHONE_NUMBER,
+    email: EMAIL,
     image: "/og-image.jpg",
     areaServed: {
       "@type": "City",
       name: "Miri",
       addressCountry: "MY",
     },
-    hasMap: "https://www.google.com/maps?q=4.4321155,114.0042754",
+    hasMap: "https://www.google.com/maps?q=" + SHOWROOM.lat + "," + SHOWROOM.lng,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Lot 1893, Jalan Bulatan, Piasau Industrial Estate",
+      streetAddress: SHOWROOM.address.split(", ")[0],
       addressLocality: "Miri",
       addressRegion: "Sarawak",
       postalCode: "98000",
@@ -138,6 +142,13 @@ export default function RootLayout({
   return (
     <html lang="ms" suppressHydrationWarning data-theme="dark" className={`h-full antialiased ${orbitron.variable} ${inter.variable} ${lavishly.variable}`}>
       <body className="min-h-full flex flex-col font-sans bg-theme text-theme-90">
+        {/* Skip to content — keyboard nav */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-blue-600 focus:text-white focus:text-sm focus:font-bold focus:outline-none"
+        >
+          Skip to content
+        </a>
         {/* JSON-LD structured data for SEO — safe static object */}
         <script
           type="application/ld+json"
