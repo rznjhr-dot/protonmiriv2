@@ -12,11 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  opacity: 0.5;
-}
-
 ::selection {
   background: #2563EB;
   color: white;
@@ -77,9 +72,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .animate-blob { animation: blob 12s infinite ease-in-out; }
 
-.animation-delay-1000 { animation-delay: 1s; }
 .animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-3000 { animation-delay: 3s; }
 .animation-delay-4000 { animation-delay: 4s; }
 
 /* Gradient text utility */
@@ -88,20 +81,6 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-
-
-/* Songket-inspired geometric pattern */
-.songket-grid {
-  background-image:
-    linear-gradient(45deg, rgba(218,41,28,0.03) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(218,41,28,0.03) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(218,41,28,0.03) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(218,41,28,0.03) 75%);
-  background-size: 40px 40px;
-  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-}
-
 /* ── Honeycomb Pattern ── */
 
 .honeycomb-bg {

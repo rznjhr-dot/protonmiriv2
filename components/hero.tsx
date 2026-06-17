@@ -11,6 +11,7 @@ export default function Hero() {
         <img
           src="/images/hero-banner.webp"
           alt=""
+          loading="lazy"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0"
@@ -125,6 +126,7 @@ export default function Hero() {
               <img
                 src="/sheena.jpg"
                 alt="Sheenalina Simon"
+                loading="lazy"
                 className="w-full h-full object-cover scale-[1.1] object-center"
               />
             </div>
@@ -171,22 +173,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-0.5 text-white/15 text-[10px]"
-        >
-          <span>Scroll</span>
-          <ArrowDown size={14} />
-        </motion.div>
-      </motion.div>
+
     </section>
   );
 }

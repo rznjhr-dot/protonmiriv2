@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron, Inter, Alex_Brush, Lavishly_Yours } from "next/font/google";
+import { Orbitron, Inter, Lavishly_Yours } from "next/font/google";
 import ErrorBoundary from "@/components/error-boundary";
 import "./globals.css";
 
@@ -12,13 +12,6 @@ const orbitron = Orbitron({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const signature = Alex_Brush({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-signature",
   display: "swap",
 });
 
@@ -143,7 +136,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="ms" suppressHydrationWarning data-theme="dark" className={`h-full antialiased ${orbitron.variable} ${inter.variable} ${signature.variable} ${lavishly.variable}`}>
+    <html lang="ms" suppressHydrationWarning data-theme="dark" className={`h-full antialiased ${orbitron.variable} ${inter.variable} ${lavishly.variable}`}>
       <body className="min-h-full flex flex-col font-sans bg-theme text-theme-90">
         {/* JSON-LD structured data for SEO — safe static object */}
         <script
