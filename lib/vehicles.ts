@@ -9,6 +9,7 @@ export interface Variant {
   torque: number;
   seats: number;
   fuelType: string;
+  promo?: string;
 }
 
 export interface Model {
@@ -213,6 +214,7 @@ export const models: Model[] = [
         torque: 290,
         seats: 5,
         fuelType: "Petrol",
+        promo: "Free Service 2 Tahun",
       },
       {
         id: "x50-flagship",
@@ -225,6 +227,7 @@ export const models: Model[] = [
         torque: 290,
         seats: 5,
         fuelType: "Petrol",
+        promo: "Free Service 2 Tahun",
       },
     ],
   },
@@ -261,6 +264,7 @@ export const models: Model[] = [
         torque: 290,
         seats: 5,
         fuelType: "Petrol",
+        promo: "Free Service 2 Tahun",
       },
     ],
   },

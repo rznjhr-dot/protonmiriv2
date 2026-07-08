@@ -96,6 +96,16 @@ export default function Calculator({ model }: Props) {
         ))}
       </div>
 
+      {/* Promo badge for selected variant */}
+      {selectedVar.promo && (
+        <div className="flex justify-center mb-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/20 text-amber-300/90 text-[10px] font-semibold tracking-wide uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            {selectedVar.promo}*
+          </span>
+        </div>
+      )}
+
       <div className="grid md:grid-cols-2 gap-6">
           {/* ---- Inputs ---- */}
           <div className="space-y-4 text-center">
